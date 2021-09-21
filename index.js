@@ -14,8 +14,11 @@ client.on("ready", () => {
 client.on("messageCreate", async (message) => {
   const command = message.content;
 
-  const reply = (msg) => {
-    message.reply(msg);
+  const reply = (msg, files) => {
+    message.reply({
+      content: msg,
+      files: files,
+    });
   };
 
   if (
@@ -37,17 +40,25 @@ client.on("messageCreate", async (message) => {
       break;
 
     case "!lutbuffet":
-      message.reply("not supported... yet");
+      LutBuffet().then(reply);
       break;
     case "!buffet":
-      message.reply("not supported... yet");
+      LutBuffet().then(reply);
       break;
 
     case "!indianacurry":
-      message.reply("not supported... yet");
+      await IndianaCurry();
+      reply(
+        "**Indiana Curry – " + "toivottavasti kuva tästä päivästä" + "**\n",
+        ["ic.png"]
+      );
       break;
     case "!ic":
-      message.reply("not supported... yet");
+      await IndianaCurry();
+      reply(
+        "**Indiana Curry – " + "toivottavasti kuva tästä päivästä" + "**\n",
+        ["ic.png"]
+      );
       break;
 
     case "!kys":

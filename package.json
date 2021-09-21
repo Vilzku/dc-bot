@@ -3,6 +3,10 @@
     "axios": "^0.21.4",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
-    "jsdom": "^17.0.0"
+    "jsdom": "^17.0.0",
+    "puppeteer": "^10.4.0"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
   }
 }
