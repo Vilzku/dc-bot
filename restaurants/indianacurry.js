@@ -12,7 +12,9 @@ const coords = [
 ];
 
 const IndianaCurry = async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    executablePath: "/usr/bin/chromium-browser",
+  });
   const page = await browser.newPage();
   await page.goto(url);
   await page.click("a[id=menu862fe208-014f-493d-98c9-2a16e743de22]");

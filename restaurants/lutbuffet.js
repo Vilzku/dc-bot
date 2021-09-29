@@ -4,7 +4,9 @@ const { JSDOM } = require("jsdom");
 const url = "https://fi.jamix.cloud/apps/menu/?anro=97383&k=1&mt=4";
 
 const LutBuffet = async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    executablePath: "/usr/bin/chromium-browser",
+  });
   const page = await browser.newPage();
   await page.goto(url);
 

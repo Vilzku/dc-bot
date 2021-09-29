@@ -23,6 +23,7 @@ client.on("messageCreate", async (message) => {
 
   if (
     message.content.toLowerCase().includes("linux") &&
+    !message.content.toLowerCase().includes("gnu/linux") &&
     message.author.id !== "887831874884468737"
   ) {
     message.reply(gnu);
