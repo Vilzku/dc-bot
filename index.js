@@ -22,6 +22,12 @@ client.on("messageCreate", async (message) => {
   };
 
   if (
+    message.content.toLowerCase().includes("burgir") &&
+    message.author.id !== "887831874884468737"
+  )
+    message.reply("<:burgir:892746551720562728>");
+
+  if (
     message.content.toLowerCase().includes("linux") &&
     !message.content.toLowerCase().includes("gnu/linux") &&
     message.author.id !== "887831874884468737"
@@ -64,6 +70,7 @@ client.on("messageCreate", async (message) => {
 
     case "!kys":
       message.reply("🔫🤓🧨");
+      break;
   }
 });
 
