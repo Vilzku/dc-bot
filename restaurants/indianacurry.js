@@ -14,6 +14,7 @@ const coords = [
 const IndianaCurry = async () => {
   const browser = await puppeteer.launch({
     executablePath: "/usr/bin/chromium-browser",
+    args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
   await page.goto(url);
