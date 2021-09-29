@@ -31,12 +31,12 @@ const IndianaCurry = async () => {
   else
     await page.screenshot({
       path: "ic.png",
-      clip: {
-        x: coords[n].x,
-        y: coords[n].y,
-        width: 300,
-        height: 165,
-      },
+      // clip: {
+      //   x: coords[n].x,
+      //   y: coords[n].y,
+      //   width: 300,
+      //   height: 165,
+      // },
     });
 };
 
