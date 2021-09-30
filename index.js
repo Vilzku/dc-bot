@@ -12,7 +12,9 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", async (message) => {
+  if (message.author.id === "887831874884468737") return;
   const command = message.content;
+  console.log(command);
 
   const reply = (msg, files) => {
     message.reply({
@@ -21,19 +23,31 @@ client.on("messageCreate", async (message) => {
     });
   };
 
+  // Burgir emote
   if (
-    message.content.toLowerCase().includes("burgir") &&
-    message.author.id !== "887831874884468737"
+    (message.content.toLowerCase().includes("burgir") ||
+      message.content.toLowerCase().includes("burger")) &&
+    !message.content.toLowerCase().includes("<:burgir:892746551720562728>")
   )
     message.reply("<:burgir:892746551720562728>");
 
+  // Linux copypasta
   if (
     message.content.toLowerCase().includes("linux") &&
-    !message.content.toLowerCase().includes("gnu/linux") &&
-    message.author.id !== "887831874884468737"
+    !message.content.toLowerCase().includes("gnu/linux")
   ) {
     message.reply(gnu);
   }
+
+  // Database trigger
+  if (
+    message.content.toLowerCase().includes("database") ||
+    message.content.toLowerCase().includes("tietokanta") ||
+    message.content.toLowerCase().includes("sql")
+  )
+    message.reply("<:madshola:834478970862436392>");
+
+  // Commands
   if (command[0] === "!")
     console.log(command + " by " + message.author.username);
 
@@ -43,6 +57,9 @@ client.on("messageCreate", async (message) => {
       break;
 
     case "!laseri":
+      Laseri().then(reply);
+      break;
+    case "!laser":
       Laseri().then(reply);
       break;
 
