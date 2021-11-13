@@ -88,6 +88,10 @@ client.on("messageCreate", async (message) => {
     case "!kys":
       message.reply("🔫🤓🧨");
       break;
+
+    case ". Aostuii adotui":
+      message.reply("Maistuu maistuu");
+      break;
   }
 });
 
