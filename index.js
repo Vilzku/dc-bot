@@ -8,7 +8,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("!kys");
+  client.user.setActivity("Leevi from the ikkuna", { type: "WATCHING" });
 });
 
 client.on("messageCreate", async (message) => {
