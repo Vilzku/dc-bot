@@ -8,7 +8,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("Leeviä from the ikkuna", { type: "WATCHING" });
+  client.user.setActivity("Leevicam 24/7", { type: "STREAMING" });
 });
 
 client.on("messageCreate", async (message) => {
