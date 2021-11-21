@@ -8,7 +8,14 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("Leevicam 24/7", { type: "STREAMING" });
+  // client.user.setActivity("Leevicam 24/7", { type: "STREAMING" });
+  client.bot.user.setPresence({
+    game: {
+      name: "Leevicam 24/7",
+      type: "STREAMING",
+      url: "https://www.twitch.tv/amouranth",
+    },
+  });
 });
 
 client.on("messageCreate", async (message) => {
