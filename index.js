@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const { Yolo, Laseri, LutBuffet, IndianaCurry } = require("./restaurants");
 const { gnu } = require("./gnu");
+const schedule = require("node-schedule");
+const { sendInsult } = require("./insults");
 
 require("dotenv").config();
 
@@ -11,6 +13,9 @@ client.on("ready", () => {
   client.user.setActivity("Leevicam 24/7", {
     type: "STREAMING",
     url: "https://www.twitch.tv/amouranth",
+  });
+  const job = schedule.scheduleJob({ hour: 16, minute: 47 }, () => {
+    sendInsult(client);
   });
 });
 
@@ -45,14 +50,12 @@ client.on("messageCreate", async (message) => {
   // Database trigger
   if (
     message.content.toLowerCase().includes("database") ||
-    message.content.toLowerCase().includes("tietokanta") ||
+    message.content.toLowerCase().includes("tietokan") ||
     message.content.toLowerCase().includes("sql")
   )
     message.reply("<:madshola:834478970862436392>");
 
   // Commands
-  if (command[0] === "!")
-    console.log(command + " by " + message.author.username);
 
   switch (command) {
     case "!yolo":
@@ -74,18 +77,20 @@ client.on("messageCreate", async (message) => {
       break;
 
     case "!indianacurry":
-      await IndianaCurry();
-      reply(
-        "**Indiana Curry – " + "toivottavasti kuva tästä päivästä" + "**\n",
-        ["ic.png"]
-      );
+      reply("Veikkaisin, että se on kiinni :-D");
+      // await IndianaCurry();
+      // reply(
+      //   "**Indiana Curry – " + "toivottavasti kuva tästä päivästä" + "**\n",
+      //   ["ic.png"]
+      // );
       break;
     case "!ic":
-      await IndianaCurry();
-      reply(
-        "**Indiana Curry – " + "toivottavasti kuva tästä päivästä" + "**\n",
-        ["ic.png"]
-      );
+      reply("Veikkaisin, että se on kiinni :-D");
+      // await IndianaCurry();
+      // reply(
+      //   "**Indiana Curry – " + "toivottavasti kuva tästä päivästä" + "**\n",
+      //   ["ic.png"]
+      // );
       break;
 
     case "!kys":
@@ -94,6 +99,10 @@ client.on("messageCreate", async (message) => {
 
     case ". Aostuii adotui":
       message.reply("Maistuu maistuu");
+      break;
+
+    case "!insult":
+      sendInsult(client);
       break;
   }
 });
