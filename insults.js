@@ -218,13 +218,23 @@ const insultList = [
 ];
 
 exports.sendInsult = async (client) => {
-  // const channel = client.channels.cache.get("689462403658022932");
-  const channel = await client.channels.fetch("884404862991859725"); // test channel
+  const channel = client.channels.cache.get("689462403658022932");
+  // const channel = await client.channels.fetch("884404862991859725"); // test channel
 
   const list = insultList.filter(function (a, i) {
     return insultList.indexOf(a) == i;
   });
   const insult = list[Math.floor(Math.random() * list.length)];
+
+  const now = new Date();
+  if (
+    now.getDate() === 31 &&
+    now.getMonth() === 0 &&
+    now.getFullYear() === 2022
+  ) {
+    channel.send("<@154252681949478912> on autisti");
+    return;
+  }
 
   if (Math.random() < 0.15) {
     channel.send("<@154252681949478912> on vitun " + insult + "!");
