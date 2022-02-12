@@ -215,6 +215,7 @@ const insultList = [
   "kännissä",
   "kummelihahmo",
   "Elisan liittymämyyjä",
+  "aaltorejekti"
 ];
 
 exports.sendInsult = async (client) => {
