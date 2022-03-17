@@ -3,6 +3,7 @@ const { Yolo, Laseri, LutBuffet, IndianaCurry } = require("./restaurants");
 const { gnu } = require("./gnu");
 const schedule = require("node-schedule");
 const { sendInsult } = require("./insults");
+const { setTimer } = require("./timer");
 
 require("dotenv").config();
 
@@ -103,6 +104,11 @@ client.on("messageCreate", async (message) => {
 
     case "!insult":
       sendInsult(client);
+      break;
+
+    case "!timer " + /\d+/:
+      const minutes = command.match(/\d+/);
+      setTimer(client, message, minutes);
       break;
   }
 });
