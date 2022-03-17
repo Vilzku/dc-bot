@@ -5,5 +5,5 @@ exports.setTimer = async (client, message, hours) => {
   channel.send("Timer set for " + hours + " hours!");
   setTimeout(function () {
     message.reply("Herää vitun muhlu");
-  }, ms);
+  }, time_in_ms);
 };
