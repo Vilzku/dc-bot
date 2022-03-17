@@ -21,7 +21,11 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", async (message) => {
-  if (message.author.id === "887831874884468737") return;
+  if (
+    message.author.id === "887831874884468737" ||
+    message.attachments.size > 0
+  )
+    return;
   const command = message.content;
   console.log(command);
 
@@ -106,9 +110,8 @@ client.on("messageCreate", async (message) => {
       sendInsult(client);
       break;
 
-    case "!timer " + /\d+/:
-      const minutes = command.match(/\d+/);
-      setTimer(client, message, minutes);
+    case command.startsWith("!timer") ? command : "":
+      setTimer(client, message);
       break;
   }
 });
