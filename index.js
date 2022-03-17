@@ -106,12 +106,10 @@ client.on("messageCreate", async (message) => {
       sendInsult(client);
       break;
 
-    /*
-    case "!timer " + /\d/:
-      const hours = command.match(/\d+/)[0];
-      setTimer(client, message, hours);
+    case "!timer " + /\d+/:
+      const minutes = command.match(/\d+/);
+      setTimer(client, message, minutes);
       break;
-      */
   }
 });
 
