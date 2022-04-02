@@ -23,7 +23,8 @@ client.on("ready", () => {
 client.on("messageCreate", async (message) => {
   if (
     message.author.id === "887831874884468737" ||
-    message.attachments.size > 0
+    message.attachments.size > 0 ||
+    message.content === ""
   )
     return;
   const command = message.content;
