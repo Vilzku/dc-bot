@@ -15,9 +15,9 @@ client.on("ready", () => {
     type: "STREAMING",
     url: "https://www.twitch.tv/amouranth",
   });
-  const job = schedule.scheduleJob({ hour: 16, minute: 47 }, () => {
-    sendInsult(client);
-  });
+  // const job = schedule.scheduleJob({ hour: 16, minute: 47 }, () => {
+  //   sendInsult(client);
+  // });
 });
 
 client.on("messageCreate", async (message) => {
